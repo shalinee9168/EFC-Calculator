@@ -1,0 +1,63 @@
+.card{
+    background-color: white;
+    border: solid #333;
+    border-radius: .2rem ;
+    padding: .2rem;
+    margin: 0 auto;
+    display: none;
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .2rem;
+    gap: .10rem;
+}
+.form-group:last-child{
+    margin: 0;
+}
+.form-group >label{
+    font-weight: bold;
+    font-size: .8em;
+    color: #333;
+
+}
+.form-group> input{
+    border: 1px solid #333;
+    border-radius: .25em;
+    font-size: 1rem;
+    padding: .25em;
+}
+.step.title{
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.card.active{
+    display: block;
+}
+.form-group span{
+    position: absolute;
+    bottom: 12px;
+    right : 17px;
+    font-size: 14px;
+    color: red;
+}
+/* #form-groupp{
+    display: none;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

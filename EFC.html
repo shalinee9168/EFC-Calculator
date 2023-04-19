@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>efc calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="myForm" data-multi-step>
+
+
+        <div class="card active" data-step="1">
+            <h3 class="step.title">Student's Profile</h3>
+            <div class="form-group">
+                <label for="dob">Date Of Birth</label>
+                <input type="date" name="dob" id="dob" value="dob" required>
+                <span id="dob-erre">dob is required</span>
+            </div>
+            <div class="form-group">
+                <label for="ctry">Country</label>
+
+                <select name="country" id="country" required>
+                    <option value="USA">United state of america</option>
+                    <option value="citizen">Country of Citizen</option>
+                    <option value="other">Other</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="stte">legal state of Residency</label>
+                <span id="state-erre">state is required</span>
+                <!-- <input type="text" name="state" id="state"> -->
+                <select name="legalstate" id="legalstate">
+                    <option value="select">select</option>
+                    <option value="delware">delware</option>
+                    <option value="albama">Albama</option>
+                    <option value="alska">Alska</option>
+                    <option value="california">Califorinia</option>
+                    <option value="American samoa">American samoa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="citzn">Are you a US citizen or a legal permanent resident?</label>
+
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="yes" id="citzn" checked="checked">
+                <label for="no">No</label>
+                <input type="radio" value="no" name="yes" id="citzns">
+            </div>
+            <div class="form-group">
+                <label>Does anyone in your family receive more than 50% financial support from you?</label>
+                <label>Yes</label>
+                <input type="radio" value="yes" name="yt" id="frecieve"
+                    onclick="checkboxTest(document.getElementById('frecieve').value)" checked>
+                <label>No</label>
+                <input type="radio" value="no" name="yt" id="frecieves"
+                    onclick="checkboxTest(document.getElementById('frecieves').value)">
+            </div>
+            <div class="form-group" id="form-groupp">
+                <label for="stdspouse">How many dependents (excluding your spouse)?</label>
+                <input type="text" name="net" id="stdspouse">
+
+            </div>
+            <div class="form-group" id="form-group1">
+                <label for="mariedsts">Marital status</label>
+                <span id="marid-erre">maried is required</span>
+                <select name="option" id="option" required>
+                    <option value="select">select</option>
+                    <option value="divorced/widowed">divorced/widoed</option>
+                    <option value="separate">separate</option>
+                    <option value="married">married</option>
+                    <option value="single">single</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="federlBnf">Have you received any Federal benefits during 2021 and 2022?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="pt" id="federlBnfes" checked="checked">
+                <label for="no">No</label>
+                <input type="radio" value="no" name="pt" id="federlBnf">
+            </div>
+            <button type="button">Back</button>
+            <button type="button" onclick="getOption(checkValid())"  data-next>Next</button>
+        </div>
+
+
+        <!-- //step two start here  -->
+
+        <div class="card" data-step="2">
+            <h3 class="step.title">Financial</h3>
+            <div class="form-group" id="para3">
+                <label for="parntsts">Parent(s) legal state of residence?</label>
+                <!-- <input type="text" name="parntsts" id="parntsts"> -->
+            
+                    <!-- <input type="text" name="state" id="state"> -->
+                    <select name="legalstate" id="legalstate">
+                        <option value="select">select</option>
+                        <option value="delware">delware</option>
+                        <option value="albama">Albama</option>
+                        <option value="alska">Alska</option>
+                        <option value="california">Califorinia</option>
+                        <option value="American samoa">American samoa</option>
+                    </select>
+                
+
+            </div>
+            <div class="form-group" id="para4">
+                <label for="parntmrd">Parent(s) marital status</label>
+                <!-- <input type="text" name="parntmrd" id="parntmrd"> -->
+                <div class="form-group" id="form-group2">
+                
+                    <select name="option" id="option" required>
+                        <option value="select">select</option>
+                        <option value="divorced/widowed">divorced/widoed</option>
+                        <option value="separate">separate</option>
+                        <option value="married">married</option>
+                        <option value="single">single</option>
+                
+                    </select>
+                </div>
+ 
+            </div>
+            <div class="form-group" id="para5">
+                <label for="age">Age of older parent</label>
+                <input type="text" name="age" id="age">
+
+            </div>
+            <div class="form-group" id="para1">
+                <label for="taxfiler">Is your parent a tax filer?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="et" id="taxfiler" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="et" id="taxfiler">
+
+
+            </div>
+            <div class="form-group" id="para2">
+                <label for="income">Parent(s) adjusted gross income (AGI) in the prior year (2021)</label>
+                <input type="text" name="income" id="income">
+
+            </div>
+            <div class="form-group " id="para6">
+                <label for="pntsave">Parent(s) cash and savings</label>
+                <input type="text" name="pntsave" id="pntsave">
+
+            </div>
+            <div class="form-group " id="para7">
+                <label for="net">Parent(s) net worth of investment</label>
+                <input type="text" name="net" id="net">
+
+            </div>
+            <div class="form-group " id="para8">
+                <label for="parntnet">Parent(s) net worth of business</label>
+                <input type="text" name="net" id="parntnet">
+
+            </div>
+            <!-- <div class="form-group">
+                <label for="parntinvs"> net worth of investment</label>
+                <input type="text" name="net" id="parntinvs">
+            
+            </div> -->
+            <div class="form-group" id="para9">
+                <label for="parnttax">How much income tax did your parents pay last year (2021)?</label>
+                <input type="text" name="net" id="parnttax">
+
+            </div>
+            <div class="form-group" id="para10">
+                <label for="totuntax">Parent(s) total untaxed income and benefits</label>
+                <input type="text" name="net" id="totuntax">
+
+            </div>
+            <div class="form-group">
+                <label for="incometax">How much income tax did you pay last year (2021)?</label>
+                <input type="text" name="net" id="incometax">
+
+            </div>
+
+            <div class="form-group " id="para11">
+                <label for="parnt1incm">Parent 1 income earned from work in the prior year (2021)</label>
+                <input type="text" name="net" id="parnt1incm">
+
+            </div>
+            <div class="form-group ">
+                <label for="ntinvs">Net worth of investment</label>
+                <input type="text" name="net" id="ntinvs" onfocus="this.value=''" value="">
+
+            </div>
+            <div class="form-group">
+                <label for="svecheck">Net cash, savings and checkings</label>
+                <input type="text" name="net" id="svecheck">
+
+            </div>
+            <div class="form-group " id="para12">
+                <label for="prntadd">Parent(s) additional income (if any)</label>
+                <input type="text" name="net" id="prntadd">
+
+            </div>
+            <div class="form-group">
+                <label for="studincome">Student's adjusted gross income (AGI) in the prior year (2021)</label>
+                <input type="text" name="net" id="studincome">
+
+            </div>
+            <div class="form-group">
+                <label for="totasset">Net worth of total assets</label>
+                <input type="text" name="net" id="totasset">
+
+            </div>
+            <div class="form-group">
+                <label for="totuntx">Total untaxed income and benefits</label>
+                <input type="text" name="net" id="totuntx">
+
+            </div>
+            <div class="form-group">
+                <label for="househldattn">How many people in your household attend college fulltime?</label>
+                <input type="text" name="net" id="househldattn">
+
+            </div>
+            <div class="form-group">
+                <label for="househld">How many people live in your household?</label>
+                <input type="text" name="net" id="househld">
+
+            </div>
+            <div class="form-group" id="para13">
+                <label for="pdislocked">Is any of your parents is a dislocated worker?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="mt" id="pdislocked" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="mt" id="pdislockeds">
+
+
+            </div>
+            <div class="form-group">
+                <label for="sttaxfiler">Is student a tax filer?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="nt" id="sttaxfiler" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="nt" id="sttaxfilers">
+
+
+            </div>
+            <div class="form-group" id="para15">
+                <label for="spouse">Student & spouse employment status</label>
+                <!-- <input type="text" name="spouse" id="spouse"> -->
+                <select name="spouse" id="spouse">
+                    <option value="select">select</option>
+                    <option value="student is employ">student is emply</option>
+                    <option value="spouse is employ">spouse is emply</option>
+                    <option value="both are employ">both are emply</option>
+                    <option value="both are unemploy">both are not emply</option>
+                </select>
+
+            </div>
+            <div class="form-group" id="para16">
+                <label for="sposdis">Is your spouse a dislocated worker?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="nm" id="sposdis" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="nm" id="sposdis">
+
+
+            </div>
+            <div class="form-group" id="para17">
+                <label for="disworker">Are you a dislocated worker?</label>
+                <label for="">Yes</label>
+                <input type="radio" value="yes" name="nme" id="disworker" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="nme" id="disworkers">
+
+
+            </div>
+            <div class="form-group" id="para18">
+                <label for="spousefull">Is your spouse a full time student?</label>
+                <label for="ys">Yes</label>
+                <input type="radio" value="yes" name="nmer" id="spousefull" checked>
+                <label for="no">No</label>
+                <input type="radio" value="no" name="nmer" id="spousefulls">
+
+
+            </div>
+            <div class="form-group" id="para14">
+                <label for="spouse">Student employment status</label>
+                <!-- <input type="text" name="spouse" id="spouse"> -->
+                <select name="stdemlpy" id="stdemlpy">
+                    <option value="select">select</option>
+                    <option value="student is employ">student is emply</option>
+                    <option value="student is unemploy">student is unemply</option>
+
+                </select>
+
+            </div>
+
+            <button type="button" id="id1" onclick="document.getElementById('id1').style.color='red'"
+                data-back>Back</button>
+            <button type="button" onclick="getInputValue()" data-submit>submit</button>
+
+        </div>
+
+        <div class="card " data-step="3">
+            <h3 class="step.title">EFC Result <p id="demo" ></p></h3>
+            <h1 class="radioShow"></h1>
+            <button type="button" data-back>Back</button>
+            <input type="button" onclick="myFunction()" value="reset">
+        </div>
+        <!-- <input type="button" onclick="myFunction()" value="reset"> -->
+    </form>
+    
+
+    <script>
+        const multistepForm = document.querySelector("[data-multi-step]")
+        const formStep = [...multistepForm.querySelectorAll("[data-step]")]
+
+
+        let currentStep = formStep.findIndex(step => {
+            return step.classList.contains("active")
+
+        })
+        if (currentStep < 0) {
+            currentStep = 0
+            showCurrentStep()
+        }
+        multistepForm.addEventListener("click", e => {
+            if (e.target.matches("[data-next]")) {
+                currentStep += 1
+                showCurrentStep();
+            } else if (e.target.matches("[data-back]")) {
+                currentStep -= 1
+                showCurrentStep();
+            }
+            // console.log(currentStep);
+            if (e.target.matches("data-back")) {
+                currentStep += 1
+            } else if (e.target.matches("[data-submit]")) {
+                currentStep += 1
+                showCurrentStep();
+            }
+
+
+        })
+        function showCurrentStep() {
+            formStep.forEach((step, index) => {
+                step.classList.toggle("active", index === currentStep)
+
+            })
+
+        }
+
+
+        function changeStep(btn) {
+            let index = 0;
+            const active = document.querySelector("active");
+            index = steps.indexOf(active);
+            steps[index].classList.remove("active");
+            if (btn === "next") {
+                index++;
+            } else if (btn === "back") {
+                index--;
+            }
+            steps[index].classList.add("active");
+        }
+
+        function getValue() {
+            
+    
+            let radio = document.getElementsByName("yes")
+
+        for (let i = 0; i < radio.length; i++) {
+                if (radio[i].checked) {
+                    console.log(radio[i].value)
+                    document.getElementsByTagName("h1").innertext = radio[i].value
+                    // document.getElementsByClassName("radioShow").innerHTML = 
+                }
+            }
+        }
+
+        function checkboxTest(value) {
+            const spouse = document.getElementById("form-groupp");
+
+            if (value === "yes") {
+                spouse.style.display = "block"
+            } else {
+                spouse.style.display = "none"
+
+            }
+        }
+
+        function getOption() {
+        //    if (checkValid() == true){
+
+        //    }
+            selectElement = document.querySelector('#option');
+            output = selectElement.value;
+            
+        
+           
+           
+            // console.log(output)
+
+            para1 = document.querySelector("#para1")
+            para2 = document.querySelector("#para2")
+            para3 = document.querySelector("#para3")
+            para4 = document.querySelector("#para4")
+            para5 = document.querySelector("#para5")
+            para6 = document.querySelector("#para6")
+            para7 = document.querySelector("#para7")
+            para8 = document.querySelector("#para8")
+            para9 = document.querySelector("#para9")
+            para10 = document.querySelector("#para10")
+            para11 = document.querySelector("#para11")
+            para12 = document.querySelector("#para12")
+            para13 = document.querySelector("#para13")
+            para14 = document.querySelector("#para14")
+            para15 = document.querySelector("#para15")
+            para16 = document.querySelector("#para16")
+            para17 = document.querySelector("#para17")
+            para18 = document.querySelector("#para18")
+            
+           
+            // console.log(hide)
+
+            if (output == "married") {
+                para1.style.display = "none"
+                para2.style.display = "none"
+                para3.style.display = "none"
+                para4.style.display = "none"
+                para5.style.display = "none"
+                para6.style.display = "none"
+                para7.style.display = "none"
+                para8.style.display = "none"
+                para9.style.display = "none"
+                para10.style.display = "none"
+                para11.style.display = "none"
+                para12.style.display = "none"
+                para13.style.display = "none"
+                para14.style.display = "none"
+            } else if(output=="divorced/widowed"){
+                para15.style.display = "none"
+                para16.style.display = "none"
+                para17.style.display = "none"
+                para18.style.display = "none" 
+
+
+            }else if (output == "separate") {
+                para15.style.display = "none"
+                para16.style.display = "none"
+                para17.style.display = "none"
+                para18.style.display = "none"
+
+            }else if (output == "single") {
+                para15.style.display = "none"
+                para16.style.display = "none"
+                para17.style.display = "none"
+                para18.style.display = "none"
+            }
+            else {
+                let prntAdd = document.getElementById("prntadd").value;
+                para1.style.display = "block"
+                para2.style.display = "block"
+                para3.style.display = "block"
+                para4.style.display = "block"
+                para5.style.display = "block"
+                para6.style.display = "block"
+                para7.style.display = "block"
+                para8.style.display = "block"
+                para9.style.display = "block"
+                para10.style.display = "block"
+                para11.style.display = "block"
+                para12.style.display = "block"
+                para13.style.display = "block"
+                para14.style.display = "block"
+            }
+        
+        }
+    
+        function getInputValue(){
+              inputValue();
+            let tax = document.getElementById("incometax").value;
+            
+            let netSave =document.getElementById("svecheck").value;
+            let netIvs = document.getElementById("ntinvs").value;
+            let stdAGI = document.getElementById("studincome").value;
+            let totasset = document.getElementById("totasset").value;
+            let totuntx = document.getElementById("totuntx").value;
+           
+            let hoseattend = document.getElementById("househldattn").value;
+            let peplive = document.getElementById("househld").value;
+            
+            
+            let totalCalculate = netSave* netIvs*tax* totasset* totuntx* stdAGI* peplive* hoseattend;
+            console.log(totalCalculate);
+            document.getElementById("demo").innerHTML =totalCalculate;
+            // console.log();
+          
+        }
+        function inputValue(){
+            let parentAGI = document.getElementById("income").value;
+            let prntSave = document.getElementById("pntsave").value;
+            let prntInvs = document.getElementById("net").value;
+            let prntBuss = document.getElementById("parntnet").value;
+            let prntInme = document.getElementById("parnttax").value;
+            let prntUntx = document.getElementById("totuntax").value;
+            let icmeTx = document.getElementById("incometax").value;
+            let prntAdd =document.getElementById("prntadd").value;
+            let totAmount = parentAGI* prntSave* prntInvs* prntBuss* prntInme* prntUntx* icmeTx;
+            console.log(totAmount);
+         }
+
+          getInputValue()
+
+        function myFunction(){
+            document.getElementById("myForm").reset();
+            document.getElementById("demo").innerHTML= " "  
+        }
+        function checkValid(){
+
+        }
+          
+
+
+    </script>
+</body>
+
+</html>
